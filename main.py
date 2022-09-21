@@ -102,10 +102,9 @@ def link_socials(id):
     user_profile = User.query.get(id)
     try:
         edit_option = False
-        if current_user:
+        if current_user.get_id():
             if int(current_user.get_id()) == int(user_profile.id):
                 edit_option = True
-
         return render_template('user.html', user_profile=user_profile, edit_option=edit_option)
     except:
         return render_template('404.html'), 404
@@ -129,7 +128,6 @@ def add_socials(id):
         }
 
         for key, value in list_of_links.items():
-            print(key, value)
             if value != "":
                 try:
                     if key == 'instagram':
@@ -186,4 +184,5 @@ def random(blah):
 
 
 if __name__ == "__main__":
+    # app.run(debug=True)
     app.run(host='0.0.0.0', port=5000)
