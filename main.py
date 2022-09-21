@@ -102,8 +102,9 @@ def link_socials(id):
     user_profile = User.query.get(id)
     try:
         edit_option = False
-        if int(current_user.get_id()) == int(id):
-            edit_option = True
+        if current_user:
+            if int(current_user.get_id()) == int(user_profile.id):
+                edit_option = True
 
         return render_template('user.html', user_profile=user_profile, edit_option=edit_option)
     except:
