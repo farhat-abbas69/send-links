@@ -97,7 +97,7 @@ def login():
     return render_template("login.html", form=form)
 
 
-@app.route('/user/<id>', methods=["GET"])
+@app.route('/user/<int:id>', methods=["GET"])
 def link_socials(id):
     user_profile = User.query.get(id)
     try:
