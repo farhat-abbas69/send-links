@@ -1,0 +1,209 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*Nav Bar And Stuff*/
+.main-header{
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    position: relative;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    min-height: 10vh;
+    padding: 1rem 0rem;
+}
+
+.title{
+    font-family: "Ruhl", sans-serif;
+    font-size: 2rem;
+    flex: 1 1 20rem;
+    text-align:center;
+}
+@media (only screen and (max-width: 768px)){
+.title{
+
+}
+}
+
+.navlist{
+    display: flex;
+    justify-content: space-around;
+    flex: 1 1 20rem;
+}
+
+li{
+    list-style: none;
+    font-size: 1.5rem;
+}
+a{
+    text-decoration: none;
+    color: rgb(23, 22, 22);
+}
+
+
+/*Hero*/
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+    opacity: 0.4;
+}
+
+.site-heading {
+    position: relative;
+    padding: 250px 0 150px;
+    color: white;
+    z-index: 2;
+}
+@media only screen and (min-width: 768px) {
+      padding: 200px 0;
+}
+.site-heading {
+text-align: center;
+
+}
+.subheading {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  display: block;
+  margin: 10px 0 0;
+  background: gray;
+}
+
+
+
+.masthead{
+  background: no-repeat center center;
+  background-color: gray;
+  background-attachment: scroll;
+  position: relative;
+  background-size: cover;
+}
+
+.subheading {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0 30px;
+}
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 55px;
+  }
+  .subheading {
+    font-size: 30px;
+  }
+}
+
+
+.banner{
+margin: 1rem;
+    padding: 1.2rem;
+    background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+font-family: "Ruhl", sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 1rem;
+}
+
+
+
+.glass {
+    background: white;
+    min-height: 80vh;
+    width: 100%;
+    background: linear-gradient(
+      to right bottom,
+      rgba(155, 154, 154, 0.7),
+      rgba(34, 32, 32, 0.3)
+    );
+    border-radius: 2rem;
+    z-index: 2;
+    backdrop-filter: blur(2rem);
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .user-img{
+    display: flex;
+    justify-content: center;
+
+  }
+  .img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 2rem;
+  }
+  .cards {
+    flex: 2;
+  }
+
+  .cards {
+    margin: 1.7rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+
+  .card {
+    cursor: pointer;
+    display: flex;
+    background: linear-gradient(
+      to left top,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.5)
+    );
+    border-radius: 1rem;
+    margin: 2rem 0rem;
+    padding: 0.7rem;
+    box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: transform .2s;
+  }
+  .card:hover{
+    transform: scale(1);
+  }
+  .logo{
+    width: 50px;
+    height: 50px;
+    margin-left: 1rem;
+  }
+
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+.home-page-glass{
+/* Created with https://www.css-gradient.com */
+background: linear-gradient(315deg, #9b32f9, #5a3cb4, #c55198);
+cursor:pointer;
+    transition: transform .2s;
+
+}
+.home-page-glass:hover{
+    transform: scale(1.02) ;
+}

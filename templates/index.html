@@ -1,0 +1,66 @@
+{% extends "header.html" %}
+{% block title %}Home Page{% endblock %}
+
+{% block head %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<!--Always remember to link bootstrap file above the css stylesheet otherwise it gets overwritten-->
+{{ super() }}
+
+{% endblock %}
+
+
+{% block body %}
+<main>
+    <header class="masthead" style="background-image: url('static/1.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Merge All your Links!</h1>
+            <span class="subheading">Can't Remember any of your socials? We are a BackUp.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</main>
+
+<div class="banner">
+    <h1>Good Day! 😃💙👋</h1>
+    <h4>If you are interested, then sign up to get yourself a snappy profile. Check Out some Recently made Profiles.</h4>
+</div>
+
+<div class="container-fluid">
+<div class="row">
+    {% for user in users%}
+    <div class="col-lg-6">
+        <a href="{{ url_for('link_socials', id=user.id) }}">
+    <section class="glass home-page-glass" >
+        {% for card in user.socials: %}
+            {% if card.social == 'profile_picture' %}
+        <div class="user-img">
+            <img class="img" src="{{ card.link }}" alt="" />
+        </div>
+            {% endif %}
+        {% endfor %}
+        <div class="cards">
+            <div class="card">
+            <img style="width:150px; height:150px;" src="https://fathers.com.sg/wp-content/uploads/2020/09/star-icon.png" alt="" />
+            <div class="card-info">
+                <h2>{{user.name}}</h2>
+                <div class="progress"></div>
+            </div>
+            <h2></h2>
+            </div>
+        </div>
+    </section>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+{% endblock %}

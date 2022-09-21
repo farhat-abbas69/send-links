@@ -1,0 +1,70 @@
+{% extends "header.html" %}
+{% block title %}User Profile{% endblock %}
+
+{% block head %}
+
+{{ super() }}
+  <link href="{{ url_for('static', filename='cards.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div class="user_screen">
+        {% if user_profile.socials %}
+    <main>
+        <section class="glass">
+            {% for card in user_profile.socials: %}
+            {% if card.social == 'profile_picture' %}
+            <div class="user-img">
+                <img class="img" src="{{ card.link }}" alt={{ user_profile.name }} />
+            </div>
+            {% endif %}
+            {% endfor %}
+                <div class="cards">
+                    {% for card in user_profile.socials %}
+                    {% if card.social != 'profile_picture'%}
+                    <a href=" {{ card.link }} " target="_blank">
+                    <div class="card" >
+                        {% if card.social == 'instagram' %}
+                            <img class="logo" src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="" />
+                        {% endif %}
+                        {% if card.social == 'twitter' %}
+                            <img class="logo" src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="" />
+                        {% endif %}
+                        {% if card.social == 'facebook' %}
+                            <img class="logo" src="https://cdn.icon-icons.com/icons2/2566/PNG/512/facebook_icon_153518.png" alt="" />
+                        {% endif %}
+                        {% if card.social == 'linkedin' %}
+                            <img class="logo" src="https://seeklogo.com/images/L/linkedin-black-icon-logo-ECC426C572-seeklogo.com.png" alt="" />
+                        {% endif %}
+                        {% if card.social == 'youtube' %}
+                            <img class="logo" src="https://cdn-icons-png.flaticon.com/512/48/48968.png" alt="" />
+                        {% endif %}
+                        {% if card.social == 'others' %}
+                            <img class="logo" src="https://cdn-icons-png.flaticon.com/512/2223/2223719.png" alt="" />
+                        {% endif %}
+
+                        <div class="card-info">
+                            <h2>{{card.social.capitalize()}}</h2>
+                            <p>{{card.link}}</p>
+                            <div class="progress"></div>
+                        </div>
+
+                        <h2></h2>
+                    </div>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+        </section>
+      </main>
+        {% endif %}
+    <div class="container">
+        {% if edit_option: %}
+            <a class="btn btn-2" href="{{ url_for('add_socials', id=current_user.get_id()) }}">Add Links</a>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

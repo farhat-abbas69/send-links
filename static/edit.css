@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    text-align: center;
+}
+
+input {
+    border: none;
+    border: 2px solid rgb(58, 58, 58);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+
+
+.cards {
+    flex: 2;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card {
+    cursor: pointer;
+    display: flex;
+    background: linear-gradient(
+      to left top,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.5)
+    );
+    border-radius: 1rem;
+    padding: 0.7rem;
+    box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+ transition: transform .2s;
+  }
+  .card:hover{
+    transform: scale(1);
+  }
+
+.head{
+    display: flex;
+    align-items: center;
+}
+
+.head-title{
+    margin-left: 1rem;
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+    margin-left: 1rem;
+}
+
+.card-info {
+    padding: 1rem;
+}
+
+
+
+.btn-add {
+  flex: 1 1 auto;
+  margin: 10px;
+  padding: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+ /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+
+  border-radius: 10px;
+  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+ }
+
+ .center-div{
+    display: flex;
+    justify-content: center;
+ }
+
+/* Demo Stuff End -> */
+
+/* <- Magic Stuff Start */
+
+.btn-add:hover {
+  background-position: right center; /* change the direction of the change here */
+}
