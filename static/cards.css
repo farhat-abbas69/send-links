@@ -17,7 +17,7 @@
     min-height: 100vh;
     background: linear-gradient(to right top, #65dfc9, #6cdbeb);
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
   }
     .user_screen{
@@ -58,8 +58,8 @@
       width: 200px;
     height: 200px;
       }
-      .card{
-        justify-content:center;
+      .main{
+        align-items:start;
       }
     }
 

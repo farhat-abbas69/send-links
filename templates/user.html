@@ -10,11 +10,13 @@
 {% block body %}
 
 <div class="user_screen">
+    {% if edit_option: %}
     <div class="container">
-        {% if edit_option: %}
+
             <a class="btn btn-2" href="{{ url_for('add_socials', id=current_user.get_id()) }}">Add Links</a>
-        {% endif %}
+
     </div>
+    {% endif %}
         {% if user_profile.socials %}
     <main>
         <section class="glass">
@@ -25,11 +27,9 @@
             </div>
             {% endif %}
             {% endfor %}
-
-            {% for card in user_profile.socials %}
-                    {% if card.social != 'profile_picture'%}
                 <div class="cards">
-
+                    {% for card in user_profile.socials %}
+                    {% if card.social != 'profile_picture'%}
                     <a href=" {{ card.link }} " target="_blank">
                     <div class="card" >
                         {% if card.social == 'insta' %}

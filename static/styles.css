@@ -207,3 +207,7 @@ cursor:pointer;
 .home-page-glass:hover{
     transform: scale(1.02) ;
 }
+
+.col-lg-6{
+    margin-bottom:1rem;
+}
