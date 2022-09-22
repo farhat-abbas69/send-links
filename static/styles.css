@@ -211,3 +211,12 @@ cursor:pointer;
 .col-lg-6{
     margin-bottom:1rem;
 }
+
+
+ @media screen and (max-width: 320px) {
+    .logo{
+        width: 25px;
+    height: 25px;
+    margin-left: 0rem;
+       }
+  }
