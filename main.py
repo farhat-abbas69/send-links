@@ -69,7 +69,15 @@ def register():
 
 
             user = User.query.filter_by(email=request.form['email']).first()
+
             login_user(user)
+            new_social = Social(
+                social='profile_picture',
+                link='https://i.pinimg.com/originals/f0/02/23/f00223f7c725c86e45d4255f0ad7705b.jpg',
+                user_id=user.id
+            )
+            db.session.add(new_social)
+            db.session.commit()
 
             return redirect(url_for('link_socials', id=user.id))
 
@@ -100,6 +108,8 @@ def login():
 @app.route('/user/<int:id>', methods=["GET"])
 def link_socials(id):
     user_profile = User.query.get(id)
+    if not user_profile:
+        return render_template('404.html'), 404
     try:
         edit_option = False
         if current_user.get_id():
@@ -120,7 +130,7 @@ def add_socials(id):
         list_of_links = {
             "profile_picture": request.form['profile_picture'],
             "twitter": request.form['twitter'],
-            "instagram": request.form['instagram'],
+            "insta": request.form['instagram'],
             "facebook": request.form['facebook'],
             "linkedin": request.form['linkedin'],
             "youtube": request.form['youtube'],
@@ -169,7 +179,7 @@ def add_socials(id):
                     db.session.commit()
 
         return redirect(url_for('link_socials', id=current_user.get_id()))
-    return render_template('edit.html', name=id)
+    return render_template('edit.html', user_profile=user_profile, name=id)
 
 
 @app.route('/logout')
@@ -184,5 +194,5 @@ def random(blah):
 
 
 if __name__ == "__main__":
-    # app.run(debug=True)
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
+    # app.run(host='0.0.0.0', port=5000)

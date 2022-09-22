@@ -10,6 +10,11 @@
 {% block body %}
 
 <div class="user_screen">
+    <div class="container">
+        {% if edit_option: %}
+            <a class="btn btn-2" href="{{ url_for('add_socials', id=current_user.get_id()) }}">Add Links</a>
+        {% endif %}
+    </div>
         {% if user_profile.socials %}
     <main>
         <section class="glass">
@@ -20,12 +25,14 @@
             </div>
             {% endif %}
             {% endfor %}
-                <div class="cards">
-                    {% for card in user_profile.socials %}
+
+            {% for card in user_profile.socials %}
                     {% if card.social != 'profile_picture'%}
+                <div class="cards">
+
                     <a href=" {{ card.link }} " target="_blank">
                     <div class="card" >
-                        {% if card.social == 'instagram' %}
+                        {% if card.social == 'insta' %}
                             <img class="logo" src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="" />
                         {% endif %}
                         {% if card.social == 'twitter' %}
@@ -58,11 +65,7 @@
         </section>
       </main>
         {% endif %}
-    <div class="container">
-        {% if edit_option: %}
-            <a class="btn btn-2" href="{{ url_for('add_socials', id=current_user.get_id()) }}">Add Links</a>
-        {% endif %}
-    </div>
+
 </div>
 
 

@@ -15,18 +15,21 @@
 <form method="POST" action="{{ url_for('add_socials', id=current_user.get_id()) }}">
     <div class="cards">
 
+        {% for card in user_profile.socials %}
+        {% if card.social == 'profile_picture'%}
         <div class="card">
                 <div class="head">
                     <img class="logo" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png" alt="" />
                     <h2 class="head-title">PFP</h2>
                 </div>
                 <div class="card-info">
-                    <input type="text" name="profile_picture" placeholder="Your Image Link"/>
+                    <input type="text" name="profile_picture" placeholder="Your Image Link" value="{{ card.link }}"/>
                     <div class="progress"></div>
                 </div>
                 <h2></h2>
         </div>
-
+        {% endif %}
+        {% endfor %}
         <div class="card">
                 <div class="head">
                     <img class="logo" src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="" />
