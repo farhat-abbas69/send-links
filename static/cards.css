@@ -26,6 +26,7 @@
     }
   .glass {
     background: white;
+    min-height: 80vh;
     width: 60%;
     background: linear-gradient(
       to right bottom,
@@ -37,6 +38,7 @@
     backdrop-filter: blur(2rem);
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
   }
 
   .user-img{
@@ -61,11 +63,11 @@
       }
     }
 
-  .cards {
+  .games {
     flex: 2;
   }
 
-  .cards {
+  .games {
     margin: 1.7rem 3rem;
     display: flex;
     flex-direction: column;
@@ -138,6 +140,9 @@ body{
 
  }
 
+/* Demo Stuff End -> */
+
+/* <- Magic Stuff Start */
 
 .btn:hover {
   background-position: right center; /* change the direction of the change here */
